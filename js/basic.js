@@ -1,24 +1,25 @@
 $(window).on('load', function () {
-    var $preloader = $('.preloader');
+  var $preloader = $('.preloader');
+  var mq = window.matchMedia( "(max-width: 570px)" );
 
-    $(function(){
-      function show_popup(){
+  $(function(){
+    function show_popup() {
       $preloader.addClass("hidden");
       $('body').addClass("ready");
-   };
-       window.setTimeout( show_popup, 500 );
-    });
+    };
+    
+    window.setTimeout( show_popup, 500 );
+  });   
 
-    $('#bMenu').on('click', function() {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active');
-        } else {
-          $(this).addClass('active');
-        }    
-    });
+  $('#bMenu').on('click', function() {
+    if ($("menu").hasClass('active')) {
+      $("menu").removeClass('active');
+    } else {
+      $("menu").addClass('active');
+    }    
+  });
+
 });
-
-
 
 document.onkeypress= function(event) {
   event= event||window.event;

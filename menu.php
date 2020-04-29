@@ -1,8 +1,6 @@
-<!-- <div class="preloader"><div class="spinner"></div></div> -->
-
 <menu class="">
 <div class="mobileBG"></div>
-<div id="bWrapper"><a id="bMenu"><span></span></a></div>
+<a id="bMenu"><span></span></a>
 	<ul>
 		<li><a id="logo" href="index.php">Mynaroch</a></li>
 		<li><a href="journal.php">Журнал</a></li>
