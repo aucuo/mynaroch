@@ -1,6 +1,5 @@
 $(window).on('load', function () {
   var $preloader = $('.preloader');
-  var mq = window.matchMedia( "(max-width: 570px)" );
 
   $(function(){
     function show_popup() {

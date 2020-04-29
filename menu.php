@@ -1,5 +1,5 @@
-<menu class="">
-<div class="mobileBG"></div>
+<menu>
+<div id="mobileBG"></div>
 <a id="bMenu"><span></span></a>
 	<ul>
 		<li><a id="logo" href="index.php">Mynaroch</a></li>

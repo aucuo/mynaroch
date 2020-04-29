@@ -10,6 +10,7 @@
 	<body>
 
 <?php require 'menu.php';?>
+<script>$("menu").addClass('transparentWhite');</script>
 
 <div class="wrapper">
 
@@ -33,7 +34,7 @@
 			<div class="date">
 				<p class="date">
 					<?php
-					date_default_timezone_set("Europe/Moscow");
+					date_default_timezone_set("Europe/Minsk");
 					rdate();
 					function rdate(){
 					  $date=explode(".", date("d.m.Y"));

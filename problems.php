@@ -9,6 +9,7 @@
   <body>
 
 <?php require 'menu.php';?>
+<script>$("menu").addClass('transparentWhite');</script>
 
 <div class="wrapper">
 

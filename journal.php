@@ -7,6 +7,7 @@
   <body>
 
 <?php require 'menu.php';?>
+<script>$("menu").addClass('white');</script>
 
 <div class="wrapper">
 

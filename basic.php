@@ -19,7 +19,7 @@
 
 	<style media="screen">
 
-	@font-face{
+	/* @font-face{
 	font-family: 'Roboto';
 		<?php
 
@@ -29,5 +29,5 @@
 		for ($i = 2; $i < count($file); $i++) {
 			echo 'src: url(\'../fonts/' . $file[$i] . '\') format(\'truetype\');';
 		} ?>
-	}
+	} */
 	</style>
