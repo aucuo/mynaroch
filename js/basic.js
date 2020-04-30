@@ -13,8 +13,10 @@ $(window).on('load', function () {
   $('#bMenu').on('click', function() {
     if ($("menu").hasClass('active')) {
       $("menu").removeClass('active');
+      $("body").addClass('ready');
     } else {
       $("menu").addClass('active');
+      $("body").removeClass('ready');
     }    
   });
 

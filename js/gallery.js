@@ -9,7 +9,6 @@ $(document).ready(function() {
     );
 
     var sizer = '.sizer';
-
     var container = $('#wrapper')
 
     container.imagesLoaded(function() {
