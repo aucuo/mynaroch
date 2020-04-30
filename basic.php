@@ -17,17 +17,3 @@
 	<link rel="stylesheet" href="css/basic.min.css">
 	<link rel="stylesheet" href="css/menu.min.css">
 
-	<style media="screen">
-
-	/* @font-face{
-	font-family: 'Roboto';
-		<?php
-
-		$dir = 'css/fonts/';
-		$file = scandir($dir);
-
-		for ($i = 2; $i < count($file); $i++) {
-			echo 'src: url(\'../fonts/' . $file[$i] . '\') format(\'truetype\');';
-		} ?>
-	} */
-	</style>

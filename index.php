@@ -1,4 +1,4 @@
-	<?php require 'basic.php';?>
+<?php require 'basic.php';?>
 
 	<script src="js/weather.js" crossorigin="anonymous"></script>
 	<script src="js/time.js"></script>
