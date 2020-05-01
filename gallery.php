@@ -11,7 +11,7 @@
 	<body>
 
 <?php require 'menu.php';?>
-<script>$("menu").addClass('white');</script>
+<script>$("menu").addClass('backgroundWhite mobileBackgroundWhite');</script>
 
 <div id="wrapper">
 

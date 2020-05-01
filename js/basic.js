@@ -1,5 +1,6 @@
 $(window).on('load', function () {
   var $preloader = $('.preloader');
+  var $standartTheme;
 
   $(function(){
     function show_popup() {
@@ -10,16 +11,29 @@ $(window).on('load', function () {
     window.setTimeout( show_popup, 500 );
   });   
 
-  $('#bMenu').on('click', function() {
+  $('#burgerMenu').on('click', function() {
     if ($("menu").hasClass('active')) {
       $("menu").removeClass('active');
-      $("body").addClass('ready');
+      $("body").removeClass('blocked');
     } else {
       $("menu").addClass('active');
-      $("body").removeClass('ready');
+      $("body").addClass('blocked');
     }    
   });
 
+  $('#themeButton').on('click', function() {
+    if ($("menu").hasClass('backgroundWhite')) {
+      $("menu").removeClass('backgroundWhite mobileBackgroundWhite');
+      $("menu").addClass('backgroundBlack mobileBackgroundBlack');
+      document.getElementById("themeButton").innerHTML="Темная";
+      $standartTheme = 'black';
+    } else if ($("menu").hasClass('backgroundBlack')) {
+      $("menu").removeClass('backgroundBlack mobileBackgroundBlack');
+      $("menu").addClass('backgroundWhite  mobileBackgroundWhite');
+      document.getElementById("themeButton").innerHTML="Светлая";
+      $standartTheme = 'white';
+    }    
+  });
 });
 
 document.onkeypress= function(event) {

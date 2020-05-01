@@ -10,7 +10,7 @@
 	<body>
 
 <?php require 'menu.php';?>
-<script>$("menu").addClass('transparentWhite');</script>
+<script>$("menu").addClass('backgroundTransparent mobileBackgroundWhite');</script>
 
 <div class="wrapper">
 
