@@ -1,7 +1,7 @@
 <?php require 'basic.php';?>
 
 	<script src="js/weather.js" crossorigin="anonymous"></script>
-	<!-- <script src="js/time.js"></script> -->
+	<script src="js/index.js"></script>
 
 	<link rel="stylesheet" href="css/basic.min.css">
 	<link rel="stylesheet" href="css/index.min.css">
@@ -12,35 +12,26 @@
 <?php require 'menu.php';?>
 <script>$("menu").addClass('backgroundTransparent mobileBackgroundWhite');</script>
 
-<div class="wrapper">
+<div id="wrapper">
 
-	<div class="background">
-    <!-- <video preload="auto" autoplay="autoplay" loop="loop">
-        <source src="media/6ff6b3e1ab.720.mp4" type="video/mp4"></source>
-    </video> -->
-	</div>
+	<div id="background"></div>
 
-	<div class="centralWrapper">
-		<div class="central">
-			<div class="information">
-				<h1>Нарочь</h1>
-			</div>
-			<div class="weather">
-				<p>Самый популярный курорт Беларуси</p>
-				<div class="type">
-					<i class="weatherIcon"></i>
-					<p class="temperature"></p>
-					<p class="weatherType"></p>
+	<div id="informationWrapper">
+		<div id="information">
+
+			<h1>Нарочь</h1>
+			<p id="quote"></p>
+
+			<div id="weatherAndDate">
+
+				<div id="weather">
+					<i id="weatherIcon"></i>
+					<p id="weatherTemperature"></p>
+					<p id="weatherType"></p>
 				</div>
-				<div class="date">
-					<p class="time">
-						<?php
-							date_default_timezone_set('Europe/Minsk');
-							$time = date('H:i');
-							echo $time;
-						?>
-					</p>
-					<p class="date">
+
+				<div id="date">
+					<p id="currentDate">
 						<?php
 						rdate();
 						function rdate() {
@@ -62,11 +53,22 @@
 						echo $date[0].'&nbsp;'.$m.'&nbsp;';
 						}
 						?>
-					</p>			
+					</p>	
+					<p id="currentTime">
+						<?php
+							date_default_timezone_set('Europe/Minsk');
+							$time = date('H:i');
+							echo $time;
+						?>
+					</p>		
 				</div>
+
 			</div>
+
 		</div>
+
 	</div>
+
 </div>
 
 	</body>
