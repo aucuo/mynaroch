@@ -12,14 +12,16 @@
 
 <?php require 'menu.php';?>
 <script>
+
 	var menuStyle = localStorage.getItem('menuStyle');
 	// $('menu').addClass('transparent')
 
-	if(typeof menuStyle !== 'undefined') {
-		$("menu").addClass(menuStyle);
-	} else {
+	if(menuStyle == null) {
 		$("menu").addClass('white');
+	} else {
+		$("menu").addClass(menuStyle);
 	}
+
 </script>
 
 <div id="wrapper">

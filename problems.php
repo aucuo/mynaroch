@@ -10,8 +10,8 @@
 
 <?php require 'menu.php';?>
 <script>
-  $(window).on('load', function () {
 
+  $(window).on('load', function () {
     $('#informationButton').on('click', function() {
         $("#aboutPageWrapper").addClass('active');
     });
@@ -19,16 +19,17 @@
     $('#closeButton').on('click', function() {
         $("#aboutPageWrapper").removeClass('active');
     });
-
   });
+
 	var menuStyle = localStorage.getItem('menuStyle');
 	$('menu').addClass('transparent')
 
-	if(typeof menuStyle !== 'undefined') {
-		$("menu").addClass(menuStyle);
-	} else {
+	if(menuStyle == null) {
 		$("menu").addClass('white');
+	} else {
+		$("menu").addClass(menuStyle);
 	}
+
 </script>
 
 <div id="wrapper">

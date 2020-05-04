@@ -1,0 +1,5 @@
+#RewriteEngine On
+
+# Disable the parameter "?i=1" in the URL
+#RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
+#RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
