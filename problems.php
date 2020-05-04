@@ -11,24 +11,7 @@
 <?php require 'menu.php';?>
 <script>
 
-  $(window).on('load', function () {
-    $('#informationButton').on('click', function() {
-        $("#aboutPageWrapper").addClass('active');
-    });
-
-    $('#closeButton').on('click', function() {
-        $("#aboutPageWrapper").removeClass('active');
-    });
-  });
-
-	var menuStyle = localStorage.getItem('menuStyle');
 	$('menu').addClass('transparent')
-
-	if(menuStyle == null) {
-		$("menu").addClass('white');
-	} else {
-		$("menu").addClass(menuStyle);
-	}
 
 </script>
 

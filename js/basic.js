@@ -1,5 +1,13 @@
 $(window).on('load', function () {
 
+  if(localStorage.getItem('menuStyle') == null) {
+    localStorage.setItem('menuStyle', 'white');
+  } else {
+    $("menu").addClass(localStorage.getItem('menuStyle'));
+  }
+
+  $("menu").addClass(localStorage.getItem('menuStyle'));
+
   $('#burgerMenu').on('click', function() {
       if ($("menu").hasClass('active')) {
         $("menu").removeClass('active');

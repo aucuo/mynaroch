@@ -7,6 +7,7 @@
 	<meta name="HandheldFriendly" content="true">
 	<meta name="google-site-verification" content="7ecsGKHrGlsFQpXMKror1oZJ8V3DqCKAAvDhu6sFHv0" />
 	<meta http-equiv="Cache-Control" content="private">
+	<meta name="theme-color" content="#161616">
 
 	<title>Mynaroch</title>
 
@@ -17,4 +18,5 @@
 	<link rel="stylesheet" href="css/basic.min.css">
 	<link rel="stylesheet" href="css/menu.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 
