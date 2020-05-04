@@ -11,7 +11,16 @@
 	<body>
 
 <?php require 'menu.php';?>
-<script>$("menu").addClass('backgroundWhite mobileBackgroundWhite');</script>
+<script>
+	var menuStyle = localStorage.getItem('menuStyle');
+	// $('menu').addClass('transparent')
+
+	if(typeof menuStyle !== 'undefined') {
+		$("menu").addClass(menuStyle);
+	} else {
+		$("menu").addClass('white');
+	}
+</script>
 
 <div id="wrapper">
 

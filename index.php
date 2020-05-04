@@ -10,14 +10,23 @@
 	<body>
 
 <?php require 'menu.php';?>
-<script>$("menu").addClass('backgroundTransparent mobileBackgroundWhite');</script>
+<script>
+	var menuStyle = localStorage.getItem('menuStyle');
+	$('menu').addClass('transparent')
+
+	if(typeof menuStyle !== 'undefined') {
+		$("menu").addClass(menuStyle);
+	} else {
+		$("menu").addClass('white');
+	}
+</script>
 
 <div id="wrapper">
 
 	<div id="background"></div>
 
 	<div id="informationWrapper">
-		<div id="information">
+		<a href="https://www.accuweather.com/ru/by/narach/29723/weather-forecast/29723" target="_blank" title="Узнать более точную погоду"><div id="information">
 
 			<h1>Нарочь</h1>
 			<p id="quote"></p>
@@ -54,18 +63,12 @@
 						}
 						?>
 					</p>	
-					<p id="currentTime">
-						<?php
-							date_default_timezone_set('Europe/Minsk');
-							$time = date('H:i');
-							echo $time;
-						?>
-					</p>		
+					<p id="currentTime"></p>		
 				</div>
 
 			</div>
 
-		</div>
+		</div></a>
 
 	</div>
 

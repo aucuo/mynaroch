@@ -1,6 +1,8 @@
 <menu class="">
 <div id="mobileBackground">
-	<a id="themeButton">Светлая</a>
+	<div id="themeButtonWrapper">
+		<a id="themeButton">Светлая</a>
+	</div>
 </div>
 <a id="burgerMenu"><span></span></a>
 	<ul>

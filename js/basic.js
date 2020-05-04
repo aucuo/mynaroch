@@ -1,38 +1,37 @@
 $(window).on('load', function () {
-  var $preloader = $('.preloader');
-  var $standartTheme;
-
-  $(function(){
-    function show_popup() {
-      $preloader.addClass("hidden");
-      $('body').addClass("ready");
-    };
-    
-    window.setTimeout( show_popup, 500 );
-  });   
 
   $('#burgerMenu').on('click', function() {
-    if ($("menu").hasClass('active')) {
-      $("menu").removeClass('active');
-      $("body").removeClass('blocked');
-    } else {
-      $("menu").addClass('active');
-      $("body").addClass('blocked');
-    }    
+      if ($("menu").hasClass('active')) {
+        $("menu").removeClass('active');
+        $("body").removeClass('blocked');
+      } else {
+        $("menu").addClass('active');
+        $("body").addClass('blocked');
+      }    
   });
 
+  var style;
+
   $('#themeButton').on('click', function() {
-    if ($("menu").hasClass('backgroundWhite')) {
-      $("menu").removeClass('backgroundWhite mobileBackgroundWhite');
-      $("menu").addClass('backgroundBlack mobileBackgroundBlack');
-      document.getElementById("themeButton").innerHTML="Темная";
-      $standartTheme = 'black';
-    } else if ($("menu").hasClass('backgroundBlack')) {
-      $("menu").removeClass('backgroundBlack mobileBackgroundBlack');
-      $("menu").addClass('backgroundWhite  mobileBackgroundWhite');
-      document.getElementById("themeButton").innerHTML="Светлая";
-      $standartTheme = 'white';
-    }    
+      if ($("menu").hasClass('white')) {
+
+          $("menu").removeClass('white');
+          $("menu").addClass('black');
+          document.getElementById("themeButton").innerHTML="Темная";
+          
+          style = 'black';
+          localStorage.setItem('menuStyle', style);
+
+      } else if ($("menu").hasClass('black')) {
+
+          $("menu").removeClass('black');
+          $("menu").addClass('white');
+          document.getElementById("themeButton").innerHTML="Светлая";
+
+          style = 'white';
+          localStorage.setItem('menuStyle', style);
+
+      }
   });
 });
 

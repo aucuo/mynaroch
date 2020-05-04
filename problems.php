@@ -9,28 +9,58 @@
   <body>
 
 <?php require 'menu.php';?>
-<script>$("menu").addClass('transparentWhite');</script>
+<script>
+  $(window).on('load', function () {
 
-<div class="wrapper">
+    $('#informationButton').on('click', function() {
+        $("#aboutPageWrapper").addClass('active');
+    });
 
-  <div class="background"></div>
+    $('#closeButton').on('click', function() {
+        $("#aboutPageWrapper").removeClass('active');
+    });
 
-  <div class="central">
-    <div class="title">
-      <h1>Проблемы</h1>
-      <p>Помогите нам сделать курорт лучше</p>
-    </div>
-    <div class="buttons">
-      <a target="_blank" href="https://forms.yandex.ru/u/5dbd842b4398967342dd0d90/" class="button" id="lBtn">Сообщить о проблеме!</a>
-      <a class="button" id="rBtn">Информация о разделе</a>
+  });
+	var menuStyle = localStorage.getItem('menuStyle');
+	$('menu').addClass('transparent')
+
+	if(typeof menuStyle !== 'undefined') {
+		$("menu").addClass(menuStyle);
+	} else {
+		$("menu").addClass('white');
+	}
+</script>
+
+<div id="wrapper">
+
+  <div id="background"></div>
+
+  <div id="aboutPageWrapper">
+    <a id="closeButton">
+      <span></span>
+    </a>
+    <div id="aboutPage">
+      <h2>Проблемы?</h2>
+      <p>Мы сделали этот раздел, чтобы вместе решать локальные городские проблемы. Мы думаем, что на нашем курорте должна и будет работать теория малых дел. Нужно всего-лишь делать то, что под силу каждому из нас. Замечать какие-то локальные проблемы и думать, как можно с ними справится раз и навсегда.</p>
+      <p>Также в этот раздел вы можете сообщать о неполадках с нашим проектом. Дать ответ мы постараемся как можно быстрей.</p>
+      <p>Наш курорт должен быть приспособлен под ваши нужды, а не ваши нужды должны приспосабливаться под наш курорт.</p>
     </div>
   </div>
 
-</div>
+  <div id="informationWrapper">
+    <div id="information">
 
-<div class="info" id="pageInfo">
-  <div class="text">
+        <h1>Проблемы</h1>
+        <p>Помогите сделать курорт ещё лучше</p>
+
+      <div id="buttons">
+        <a target="_blank" href="https://forms.yandex.ru/u/5dc6b567f198c023f8e47549/" class="button" id="lBtn">Сообщить о проблеме!</a>
+        <a class="button" id="informationButton">Информация о разделе</a>
+      </div>
+
+    </div>
   </div>
+
 </div>
 
   </body>
