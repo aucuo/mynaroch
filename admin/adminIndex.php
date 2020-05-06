@@ -22,7 +22,7 @@
 	
 	<div id="informationWrapper">
 		<div id="information">
-			<h1>Pryvitańnie, Jahor</h1>
+			<h1>Pryvitańnie,</h1>
 			<p>Ty vałodaješ mahutnaściu administratara</p>
 		</div>
 	</div>
