@@ -1,4 +1,4 @@
-fetch('http://api.openweathermap.org/data/2.5/weather?id=593116&lang=ru&appid=878f68afb0031322ddc2eb6fb8995992')
+fetch('http://api.openweathermap.org/data/2.5/weather?id=624804&lang=ru&appid=0294100c551cfce9f056d9f11bcb4f95')
     .then(function (resp) {
         return resp.json()
     })

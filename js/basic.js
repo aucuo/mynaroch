@@ -1,12 +1,19 @@
 $(window).on('load', function () {
 
-  if(localStorage.getItem('menuStyle') == null) {
-    localStorage.setItem('menuStyle', 'white');
-  } else {
-    $("menu").addClass(localStorage.getItem('menuStyle'));
+  if(sessionStorage.getItem('menuStyle') == null) {
+    sessionStorage.setItem('menuStyle', 'white');
+    document.getElementById("themeButton").innerHTML="Тёмная";
+
+  } else if(sessionStorage.getItem('menuStyle') == 'white') {
+    $("menu").addClass('white');
+    document.getElementById("themeButton").innerHTML="Тёмная";
+
+  } else if(sessionStorage.getItem('menuStyle') == 'black') {
+    $("menu").addClass('black');
+    document.getElementById("themeButton").innerHTML="Светлая";
   }
 
-  $("menu").addClass(localStorage.getItem('menuStyle'));
+  $("menu").addClass(sessionStorage.getItem('menuStyle'));
 
   $('#burgerMenu').on('click', function() {
       if ($("menu").hasClass('active')) {
@@ -25,19 +32,19 @@ $(window).on('load', function () {
 
           $("menu").removeClass('white');
           $("menu").addClass('black');
-          document.getElementById("themeButton").innerHTML="Темная";
+          document.getElementById("themeButton").innerHTML="Светлая";
           
           style = 'black';
-          localStorage.setItem('menuStyle', style);
+          sessionStorage.setItem('menuStyle', style);
 
       } else if ($("menu").hasClass('black')) {
 
           $("menu").removeClass('black');
           $("menu").addClass('white');
-          document.getElementById("themeButton").innerHTML="Светлая";
+          document.getElementById("themeButton").innerHTML="Тёмная";
 
           style = 'white';
-          localStorage.setItem('menuStyle', style);
+          sessionStorage.setItem('menuStyle', style);
 
       }
   });
@@ -47,5 +54,5 @@ document.onkeypress= function(event) {
   event= event||window.event;
 
   if(event.code == 'KeyA' && event.shiftKey)
-    window.location= "auth.php"; //здесь подставите ту страницу, которая вам нужна
+    window.location= "/admin/adminIndex.php"; //здесь подставите ту страницу, которая вам нужна
 };

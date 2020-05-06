@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile D:/OpenServer/domains/mynaroch.by/admin/.htpasswd
+Require valid-user
