@@ -1,0 +1,41 @@
+@import 'variables.scss';
+
+#background {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../media/adminIndexBackground.jpg');
+    background-position: center;
+    background-color: #000;
+    background-size: cover;
+    filter: brightness(.6);
+}
+
+#informationWrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    #information {
+        padding: 20px;
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            letter-spacing: .5px;
+            user-select: none;
+        }
+        
+        p {
+            text-align: center;
+            color: #fff;
+            line-height: 20px;
+            letter-spacing: .5px;
+            user-select: none;
+        }
+    }
+}
