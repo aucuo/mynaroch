@@ -22,7 +22,7 @@
 
 #authForm {
     padding: 20px;
-    width: 30%;
+    width: 300px;
     font-size: 1rem;
 
     label {
@@ -73,5 +73,11 @@
             text-align: center;
             margin: 0;
         }
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    #authForm {
+        width: 200px;
     }
 }

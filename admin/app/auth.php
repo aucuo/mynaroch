@@ -5,7 +5,7 @@
 	$login = $_POST['login'];
 	$password = $_POST['password'];
 
-	$userCheck = mysqli_query($connect, "SELECT * FROM `admins` WHERE `login` = '$login' AND `password` = '$password'");
+    $userCheck = mysqli_query($connect, "SELECT * FROM `admins` WHERE `login` = '$login' AND `password` = '$password'");
 
     if (mysqli_num_rows($userCheck) > 0) {
 
@@ -18,11 +18,11 @@
             "privilege" => $user['privilege']
         ];
 
-        header('Location: adminIndex.php');
+        header('Location: ../adminIndex.php');
 
     } else {
 
-        $_SESSION['message'] = 'Не верный логин или пароль';
-        header('Location: adminAuth.php');
+        $_SESSION['message'] = 'Неверный логин или пароль';
+        header('Location: ../adminAuth.php');
 
     }

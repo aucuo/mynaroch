@@ -1,18 +1,11 @@
-<?php require '../basic.php';?>
+<?php require 'app/session.php'; session_start(); require 'app/basic.php';?>
 
-    <script src="/js/adminJournal.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/adminJournal.min.css">
 
-    <script src="../js/basic.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<?php require 'app/adminMenu.php';?>
 
-    <link rel="stylesheet" href="../css/adminJournal.min.css">
-    
-    <link rel="stylesheet" href="../css/basic.min.css">
-    <link rel="stylesheet" href="../css/menu.min.css">
-
-	</head>
-	<body>
-
-<?php require 'adminMenu.php';?>
 
 <div id="wrapper">
 
@@ -20,5 +13,6 @@
 
 </div>
 
-	</body>
-	</html>
+
+</body>
+</html>

@@ -1,20 +1,12 @@
-<?php require 'adminBasic.php';?>
+<?php require 'app/session.php'; session_start(); require 'app/basic.php';?>
 
-    <script src="/js/admin.js" crossorigin="anonymous"></script>
-    <script src="../js/basic.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/adminIndex.min.css">
 
-	<link rel="stylesheet" href="../css/adminIndex.min.css">
+</head>
+<body>
+<?php require 'app/adminMenu.php';?>
+<script>$('menu').addClass('transparent')</script>
 
-	</head>
-	<body>
-
-<?php require 'adminMenu.php';?>
-
-<script>
-
-	$('menu').addClass('transparent')
-
-</script>
 
 <div id="wrapper">
 
@@ -22,12 +14,20 @@
 	
 	<div id="informationWrapper">
 		<div id="information">
-			<h1>Pryvitańnie,</h1>
-			<p>Ty vałodaješ mahutnaściu administratara</p>
+
+			<h1><?php echo $_SESSION['user']['name'] ?></h1>
+
+			<p>Stvaraj novaje, abnaŭlaj staroje</p>
+			
+			<div id="logoutButtonWrapper">
+				<a href="app/logout.php" id="logoutButton">Vyjści z adminki</a>
+			</div>
+
 		</div>
 	</div>
 
 </div>
 
-	</body>
-	</html>
+
+</body>
+</html>

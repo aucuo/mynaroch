@@ -54,5 +54,5 @@ document.onkeypress= function(event) {
   event= event||window.event;
 
   if(event.code == 'KeyA' && event.shiftKey)
-    window.location= "/admin/adminIndex.php"; //здесь подставите ту страницу, которая вам нужна
+    window.location= "/admin/adminAuth.php"; //здесь подставите ту страницу, которая вам нужна
 };

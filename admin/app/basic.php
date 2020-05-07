@@ -13,18 +13,14 @@
 
 	<meta name="theme-color" content="#161616">
 
-	<meta name="Author" content="Jahor Šykaviec">
-	<meta name="Copyright" content="Jahor Šykaviec">
-	<meta name="Adress" content="Belarus, Minskaja voblasć, Miadzieĺski rajon, kurortny pasiolak Narač">
-
 	<title>Mynaroch</title>
 
 	<script src="https://kit.fontawesome.com/48a36d81b9.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="../js/basic.js"></script>
+	<script src="../../js/basic.js"></script>
 
-	<link rel="stylesheet" href="../css/basic.min.css">
-	<link rel="stylesheet" href="../css/menu.min.css">
+	<link rel="stylesheet" href="../../css/basic.min.css">
+	<link rel="stylesheet" href="../../css/menu.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 

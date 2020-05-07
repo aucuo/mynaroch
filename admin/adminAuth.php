@@ -1,21 +1,28 @@
-<?php session_start(); require 'adminBasic.php';?>
+<?php 
+	session_start(); 
 
-	<link rel="stylesheet" href="../css/adminAuth.min.css">
+	if ($_SESSION['user']) {
+		header('Location: adminIndex.php');
+	}
 
-	</head>
-	<body>
+	require 'app/basic.php';
+?>
 
-<?php require '../menu.php';?>
+<link rel="stylesheet" href="../css/adminAuth.min.css">
+
+</head>
+<body>
+
 
 <div id="wrapper">
 
-	<form id="authForm" action="auth.php" method="post" enctype="multipart/form-data">
+	<form id="authForm" action="app/auth.php" method="post" enctype="multipart/form-data">
 
 		<label>Логин</label>	
 		<input id="loginInput" type="text" name="login" placeholder="Введите логин">
 
 		<label>Пароль</label>
-		<input id="passwordInput" type="text" name="password" placeholder="Введите пароль">
+		<input id="passwordInput" type="password" name="password" placeholder="Введите пароль">
 
 		<button type="submit">Войти</button>
 
@@ -34,5 +41,6 @@
 
 </div>
 
-	</body>
-	</html>
+
+</body>
+</html>
