@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	error_reporting(1);
+	error_reporting();
 	$dataBaseHost = 'localhost';
 	$dataBaseUser = 'root';
 	$dataBasePassword = 'root';

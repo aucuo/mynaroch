@@ -12,7 +12,10 @@
     <form id="uploadForm" action="app/upload.php" method="post" enctype="multipart/form-data">
 
 		<label id="lableForFile" for="fileInput">Выбрать файл</label>
-		<input id="fileInput" type="file" name="userfile[]"  multiple  accept="image/*" >
+		<input name="comment" id="commentInput" type="text" placeholder="Комментарий к фотографии">
+
+		<label id="lableForFile" for="fileInput">Выбрать файл</label>
+		<input name="image" id="fileInput" type="file" accept="image/*">
 
 		<button type="submit">Загрузить</button>
 
