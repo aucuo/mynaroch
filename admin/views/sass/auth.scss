@@ -1,0 +1,71 @@
+@import 'variables.scss';
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#authForm {
+    padding: 20px;
+    width: 300px;
+    font-size: 1rem;
+
+    label {
+        margin: 0 0 20px 0;
+        color: #000;
+        transition: .3s; 
+    }
+
+    input {
+        width: 90%;
+        margin: 10px 0 10px 0;
+        padding: 10px 5%;
+        border: none;
+        border-bottom: 1px solid #bebebe;
+        background: transparent;
+        outline: none;
+        transition: .3s;
+
+        &#loginInput {
+            margin: 10px 0 40px 0;
+        }
+
+        &:focus {
+            border-bottom: 1px solid #000;
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        background: #000;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover,
+        &:focus {
+            background: #242424;
+        }
+    }
+
+    #messages {
+        padding: 10px;
+
+        p {
+            text-align: center;
+            margin: 0;
+        }
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    #authForm {
+        width: 200px;
+    }
+}

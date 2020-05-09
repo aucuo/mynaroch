@@ -1,0 +1,290 @@
+@import 'variables.scss';
+
+menu {
+    z-index   : 9999;
+    position  : fixed;
+    top       : 0;
+    width     : 90%;
+    padding   : 0 5%;
+    min-height: 40px;
+    user-select: none; 
+    transition: .3s;
+  
+    ul {
+      display          : flex;
+      height           : 40px;
+      align-items      : center;
+
+      li {
+        margin: 0 30px 0 0;
+    
+        &:first-child {
+          margin: 0 50px 0 0;
+        }
+
+        &:last-child {
+          margin: 0;
+          margin-left: auto;
+        }
+    
+        a {
+          width: auto;
+          user-select: none;
+          font-size: .95rem;
+          font-weight: 300;
+          transition: .2s;
+      
+          &#logo {
+            font-weight: bold;
+            font-size: 1rem;
+            background-image: linear-gradient($mc, $mc);
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 3px;
+            transition: background-size .3s;
+          }
+
+          &#logoutButton {
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            border-radius: 3px;
+
+            &:hover {
+              background: #fff;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+
+    #mobileBackground {
+      display: none;
+    }
+  
+
+    // ANCHOR Menu Styles
+    &.white {
+      background: #fff;
+
+      * {
+        transition: .3s;
+      }
+
+      a {
+        color: #000;
+      }
+  
+      span,
+      span::after,
+      span::before {
+        background: #000;
+      }
+
+      &.active {
+        #mobileBackground {
+          background: #fff;
+        }
+
+        a {
+          color: #000;
+
+          &#logoutButton {
+            border: 1px solid #000;
+            border-radius: 3px;
+  
+            &:hover {
+              background: #000;
+              color: #fff;
+            }
+          }
+        }
+  
+        span,
+        span::after,
+        span::before {
+          background: #000;
+        }
+      }
+    }
+
+    &.transparent {
+      background: none;
+
+      * {
+        transition: .3s;
+      }
+
+      a {
+        color: #fff;
+      }
+  
+      span,
+      span::after,
+      span::before {
+        background: #fff;
+      }
+    }
+  }
+
+// ANCHOR Desktop Hover Effects
+@media only screen and (min-width : 764px) {
+    & {
+        a:not(#logo):hover {
+          color: $mc;
+        }
+    
+        a#logo:hover {
+          background-size: 100% 3px;
+        }
+      }
+}
+
+
+// ANCHOR Media queries
+@media only screen and (max-width : 700px) {
+    menu {
+      &:not(.active) {
+        height: 50px;
+
+        ul {
+          height: 50px;
+
+          li {
+            height: 50px;
+
+            #logo {
+              display: flex;
+              align-items: center;
+              font-size: 1.1rem;
+              height: 50px;
+              background-position: 0 70%;
+            }
+          }
+        }
+
+        &.white:not(.transparent),
+        &.black:not(.transparent) {
+          #logo {
+            background-size: 100% 3px;
+          }
+        }
+      }
+
+      a:not(#logo):not(#burgerMenu) {
+        display: none;
+        transition: .3s;
+      }
+
+      #mobileBackground {
+        display: block;
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0vh;
+        transition: .3s;
+      }
+
+      #burgerMenu {
+        z-index: 9998;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        *, 
+        *::before, 
+        *::after {
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 3px;
+        }
+        
+        span {
+          top: 13.5px;
+          transition: .4s;
+  
+          &::before {
+            content: '';
+            top: 10px;
+            transition-delay: .2s;
+          }
+  
+          &::after {
+            content: '';
+            top: 20px;
+            transition: .4s;
+          }
+        }
+      }
+  
+  
+      // ANCHOR Active Mobile Menu
+      &.active {
+        height: 100vh;
+        width: 90%;
+        padding: 0 5%;
+        overflow: visible;
+        
+        ul {
+          display: block;
+          position: relative;
+          height: auto;
+          margin: 20px;
+
+          li {
+            padding: 5px 0 25px ;
+
+            &:first-child {
+              padding: 0 0 30px;
+              border-bottom: none;
+            }
+
+            a:not(#logo):not(#burgerMenu) {
+              display: inline;
+              font-size: 1.1rem;
+              font-weight: 400;
+            }
+    
+            a#logo {
+              font-size: 1.3rem;
+              background-size: 100% 3px;
+            }
+          }
+        }
+  
+        #mobileBackground {
+          visibility: visible;
+          height: 100vh;
+        }
+  
+  
+        // ANCHOR Burger Menu Animation
+        #burgerMenu span {
+          top: 50%;
+          transform: rotate(45deg);
+          transition: .4s;
+          transition-delay: 0s;
+  
+          &::before {
+            filter: opacity(0%);
+            transform: rotate(-45deg);
+            transition-delay: 0s;
+          }
+  
+          &::after {
+            top: 0;
+            transform: rotate(-90deg);
+            transition: .4s;
+            transition-delay: 0s;
+          }
+        }
+      }
+    }
+  }

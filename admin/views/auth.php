@@ -1,14 +1,6 @@
-<?php 
-	session_start(); 
+<?php $basename = basename(__FILE__); session_start(); require 'basic/basic.php';?>
 
-	if ($_SESSION['user']) {
-		header('Location: adminIndex.php');
-	}
-
-	require 'app/basic.php';
-?>
-
-<link rel="stylesheet" href="../css/adminAuth.min.css">
+<link rel="stylesheet" href="css/auth.min.css">
 
 </head>
 <body>
@@ -16,7 +8,7 @@
 
 <div id="wrapper">
 
-	<form id="authForm" action="app/auth.php" method="post" enctype="multipart/form-data">
+	<form id="authForm" action="../models/login.php" method="post" enctype="multipart/form-data">
 
 		<label>Логин</label>	
 		<input id="loginInput" type="text" name="login" placeholder="Введите логин">

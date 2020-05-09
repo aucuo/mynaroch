@@ -1,10 +1,10 @@
-<?php require 'app/session.php'; session_start(); require 'app/basic.php';?>
+<?php $basename = basename(__FILE__); session_start(); require 'basic/basic.php';?>
 
-<link rel="stylesheet" href="../css/adminGallery.min.css">
+<link rel="stylesheet" href="css/gallery.min.css">
 
 </head>
 <body>
-<?php require 'app/adminMenu.php';?>
+<?php require 'basic/menu.php';?>
 
 
 <div id="wrapper">
