@@ -1,0 +1,128 @@
+@import '../variables.scss';
+
+* {
+  font-family: Roboto, sans-serif;
+  margin        : 0;
+  padding       : 0;
+  vertical-align: baseline;
+  color         : #000;
+  outline       : none;
+
+  &::selection {
+    background: $mcs;
+  }
+}
+
+body {
+  font-size  : 1rem;
+  line-height: 1;
+
+  &.blocked {
+    overflow: hidden;
+  }
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: '';
+  content: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+table {
+  border-spacing : 0;
+  border-collapse: collapse;
+}
+
+img {
+  max-width: 100%;
+  border   : 0;
+  user-select: none;
+}
+
+a {
+  cursor         : pointer;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin   : 0 0 1rem;
+}
+
+p {
+  font-size  : .9rem;
+  font-weight: 300;
+  margin     : 1rem 0;
+}
+
+
+// Обычная версия меню. (для широких экранов)
+
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform        : rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform        : rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform        : rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform        : rotate(360deg);
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #da9716;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e8af41;
+}
