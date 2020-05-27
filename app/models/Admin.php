@@ -133,4 +133,96 @@ class Admin extends Model {
         return $db -> row("SELECT * FROM $table WHERE id = :id", $params);
     }
     
+
+    public function articleUpload($post, $files) {
+        
+        if (empty($post['header']) or empty($post['category']) or empty($post['description']) or empty($post['content']) or empty($files['file']['name'])) {
+            return false;
+        }
+
+        $files = $files['file'];
+        $type = substr($files['type'], 6, 100);
+
+        $dir = 'public/images/journal';
+        $tmp_name = $files['tmp_name'];
+        $name = uniqid() .".$type"; // Генерация уникального имени
+
+        move_uploaded_file($tmp_name, "$dir/$name");
+
+        // Магия сжатия картинки
+        $filename = "$dir/$name";
+        $source = imagecreatefromjpeg($filename);
+        list($width, $height) = getimagesize($filename);
+        $newwidth = 800;
+        $newheight = $height/($width/$newwidth);
+
+        $destination = imagecreatetruecolor($newwidth, $newheight);
+        imagecopyresampled($destination, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        imagejpeg($destination, "$dir/$name", 100);
+
+        $db = new Db;
+
+        $params = [
+            'header' => $post['header'],
+            'image' => "$dir/$name",
+            'category' => $post['category'],
+            'description' => $post['description'],
+            'content' => $post['content'],
+            'author' => $_SESSION['admin']['name'],
+            'date' => date('d.m.Y'),
+            'time' => date('G:i'),
+        ];
+
+        $db -> row("INSERT INTO `journal` (`header`, `image`, `category`, `description`, `content`, `author`, `date`, `time`) VALUES (:header, :image, :category, :description, :content, :author, :date, :time );", $params);
+
+        return true;
+    }
+
+
+    public function getArticles() {
+        
+        $db = new Db;
+        $query = $db -> row("SELECT `id`, `header`, `image`, `category`, `description`, `author`, `date`, `time` FROM `journal` WHERE 1");
+
+        return $query;
+    }
+
+    public function articleEdit($post, $id) {
+
+        if (empty($post['header']) or empty($post['category']) or empty($post['description']) or empty($post['content'])) {
+            return false;
+        }
+
+        $db = new Db;
+
+        $params = [
+            'id' => $id,
+            'header' => $post['header'],
+            'category' => $post['category'],
+            'description' => $post['description'],
+            'content' => $post['content'],
+        ];
+
+        
+
+        $query = $db -> query("UPDATE `journal` SET `header` = :header, `category` = :category, `description` = :description, `content` = :content WHERE `journal`.`id` = :id;", $params);
+
+        return $query;
+    }
+
+
+    public function articleDelete($dir, $id) {
+
+        unlink("$dir");
+
+        $params = [
+            'id' => $id,
+        ];
+
+        $db = new Db;
+
+        $query = $db -> query("DELETE FROM `journal` WHERE `journal`.`id` = :id;", $params);
+
+        return true;
+    }
 }

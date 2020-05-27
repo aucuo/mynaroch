@@ -4,81 +4,51 @@
     
         <section id="headerSection">
             <ul>
-                <li>
-                    <a class="article">
-                        <div class="description">
-                            <p class="header">Допустим, это заголовок. Что дальше?</p>
-                            <p class="category">Архитектура</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="description">
-                            <p class="header">Допустим, это заголовок. Что дальше?</p>
-                            <p class="category">Архитектура</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="description">
-                            <p class="header">Допустим, это заголовок. Что дальше?</p>
-                            <p class="category">Архитектура</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="description">
-                            <p class="header">Допустим, это заголовок. Что дальше?</p>
-                            <p class="category">Архитектура</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="description">
-                            <p class="header">Допустим, это заголовок. Что дальше?</p>
-                            <p class="category">Архитектура</p>
-                        </div>
-                    </a>
-                </li>
+                <?
+                
+                    for ($i = 0; $i < 5; $i++) {
+                        if (isset($vars[$i])) {
+                            echo 
+                            '
+                            <li>
+                                <a href="/journal/article/'. $vars[$i]['id'] .'" class="article" style="background-image: url(/'. $vars[$i]['image'] .');">
+                                    <div class="description">
+                                        <p class="header">'. $vars[$i]['header'] .'</p>
+                                        <p class="category">'. $vars[$i]['category'] .'</p>
+                                    </div>
+                                </a>
+                            </li>
+                            ';
+                        }
+                    }
+                
+                ?>
             </ul>
         </section>
 
         <section id="mainSection">
             <ul>
-                <li>
-                    <a class="article">
-                        <div class="img"></div>
-                        <div class="description">
-                                <p class="header">Допустим, это заголовок. Что дальше?</p>
-                                <p class="text">Вот тут уже есть текст, который описывает начало этой триклятой статьи.</p>
-                                <p class="category">История</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="img"></div>
-                        <div class="description">
-                                <p class="header">Допустим, это заголовок. Что дальше?</p>
-                                <p class="text">Вот тут уже есть текст, который описывает начало этой триклятой статьи.</p>
-                                <p class="category">История</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="article">
-                        <div class="img"></div>
-                        <div class="description">
-                                <p class="header">Допустим, это заголовок. Что дальше?</p>
-                                <p class="text">Вот тут уже есть текст, который описывает начало этой триклятой статьи.</p>
-                                <p class="category">История</p>
-                        </div>
-                    </a>
-                </li>
+                <?
+
+                    for ($i = 5; $i < 7; $i++) {
+                        if (isset($vars[$i])) {
+                            echo 
+                            '
+                            <li>
+                                <a href="/journal/article/'. $vars[$i]['id'] .'" class="article">
+                                    <div class="img" style="background-image: url(/'. $vars[$i]['image'] .');"></div>
+                                    <div class="description">
+                                            <p class="header">'. $vars[$i]['header'] .'</p>
+                                            <p class="text">'. $vars[$i]['description'] .'</p>
+                                            <p class="category">'. $vars[$i]['category'] .'</p>
+                                    </div>
+                                </a>
+                            </li>
+                            ';
+                        }
+                    }
+
+                ?>
             </ul>
         </section>
     

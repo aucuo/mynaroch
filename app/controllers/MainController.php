@@ -13,12 +13,19 @@ class MainController extends Controller {
 
     public function journalAction() {
 
-        $this -> view -> render('Журнал');
+        $list = $this -> model -> getArticles();
+        $this -> view -> render('Журнал', $list);
     }
 
     public function articleAction() {
 
-        $this -> view -> render('Журнал');
+        $result = $this -> model ->  isExists('journal', $this -> route['id']);
+        
+        if (!$result) {
+            $this -> view -> errorCode(404);
+        }
+
+        $this -> view -> render('Журнал', $result);
     }
 
     public function problemsAction() {

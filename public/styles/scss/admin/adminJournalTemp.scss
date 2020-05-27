@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+#wrapper {
+    max-width: 800px;
+    padding: 0 40px;
+    margin: 60px auto;
+
+    * {
+        font-size: 1rem;
+        line-height: 25px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    a {
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+    ul, ol {
+        padding: 10px 20px;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+
+        li {
+            list-style-type: none;
+            font-weight: 300;
+        }
+
+        
+    }
+
+    ul li {
+        list-style-type: square;
+    }
+
+    ol li {
+        list-style-type: decimal;
+    }
+
+    blockquote {
+        padding: 20px;
+        margin: 0 20px 40px;
+        background: #f0e8ce;
+        font-weight: 300;
+        font-style: italic;
+    }
+}

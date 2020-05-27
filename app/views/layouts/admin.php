@@ -38,8 +38,8 @@
 			<li>
 				<a>Časopis</a>
 				<ul>
-					<li><a href="">Добавить</a></li>
-					<li><a href="">Редактировать</a></li>
+					<li><a href="/admin/journal/add">Добавить</a></li>
+					<li><a href="/admin/journal">Редактировать</a></li>
 				</ul>
 			</li>
 			<li>

@@ -20,6 +20,10 @@ return [
         'gallery',
         'galleryAdd',
         'galleryEdit',
+        'journal',
+        'journalAdd',
+        'journalEdit',
+        'journalTemp',
         'logout',
     ],
 ];

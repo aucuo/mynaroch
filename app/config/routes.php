@@ -13,7 +13,7 @@ return [
         'action' => 'journal',
     ],
 
-    'article' => [
+    'journal/article/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'article',
     ],
@@ -45,6 +45,7 @@ return [
         'action' => 'logout',
     ],
 
+    // Gallery
     'admin/gallery' => [
         'controller' => 'admin',
         'action' => 'gallery',
@@ -59,4 +60,27 @@ return [
         'controller' => 'admin',
         'action' => 'galleryEdit',
     ],
+
+    // Journal
+    'admin/journal' => [
+        'controller' => 'admin',
+        'action' => 'journal',
+    ],
+
+    'admin/journal/add' => [
+        'controller' => 'admin',
+        'action' => 'journalAdd',
+    ],
+
+    'admin/journal/temp' => [
+        'controller' => 'admin',
+        'action' => 'journalTemp',
+    ],
+
+    'admin/journal/edit/{id:\d+}' => [
+        'controller' => 'admin',
+        'action' => 'journalEdit',
+    ],
+
+    
 ];

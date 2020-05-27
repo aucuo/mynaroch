@@ -32,7 +32,7 @@ class AdminController extends Controller {
 
     public function indexAction() {
 
-        $this -> view -> render('Главная');
+        $this -> view -> render('Maja Narač');
     }
 
 
@@ -41,7 +41,7 @@ class AdminController extends Controller {
         $list = $this -> model -> getImages();
         
 
-        $this -> view -> render('Журнал', $list);
+        $this -> view -> render('Галерея', $list);
     }
 
 
@@ -58,7 +58,7 @@ class AdminController extends Controller {
             }
         }
 
-        $this -> view -> render('Журнал');
+        $this -> view -> render('Галерея');
     }
 
     
@@ -85,6 +85,88 @@ class AdminController extends Controller {
 
             $this -> model -> imageDelete($result[0]['big'], $result[0]['small'], $this -> route['id']);
             header("Location: /admin/gallery");
+        }
+
+        $this -> view -> render('Галерея', $result[0]);
+    }
+
+    public function journalAction() {        
+
+        $list = $this -> model -> getArticles();
+
+        $this -> view -> render('Журнал', $list);
+    }
+
+    public function journalAddAction() {        
+
+        if (isset($_POST['save'])) {
+
+            $_SESSION['temp'] = $_POST;
+
+            if ($this -> model -> articleUpload($_POST, $_FILES)) {
+
+                $_SESSION['message'] = 'Файл успешно загружен';
+                unset($_SESSION['temp']);
+                header("Location: /admin/journal");
+
+            } else {
+                
+                $_SESSION['message'] = 'Заполните все поля';
+            }
+
+        } else if (isset($_POST['temp'])) {
+
+            $_SESSION['temp'] = $_POST;
+            header("Location: /admin/journal/temp");
+
+        } else if (isset($_SESSION['temp'])) {
+
+            $this -> view -> render('Журнал', $_SESSION['temp']);
+            die();
+        }
+
+        $this -> view -> render('Журнал');
+    }
+
+    public function journalTempAction() {        
+
+        $this -> view -> render('Журнал');
+    }
+
+    public function journalEditAction() {        
+
+        $result = $this -> model ->  isExists('journal', $this -> route['id']);
+        
+        if (!$result) {
+            $this -> view -> errorCode(404);
+        }
+
+        if (isset($_SESSION['temp'])) {
+
+            $result = $_SESSION['temp'];
+            unset($_SESSION['temp']);
+        }
+
+        if (isset($_POST['save'])) {
+
+            if ($this -> model -> articleEdit($_POST, $this -> route['id'])) {
+
+                $_SESSION['message'] = 'Статья отредактирована';
+
+            } else {
+                
+                $_SESSION['message'] = 'Заполните все поля';
+            }
+
+        } else if (isset($_POST['temp'])) {
+
+            $_SESSION['temp'] = $_POST;
+            header("Location: /admin/journal/temp");
+
+        } else if (isset($_POST['delete'])) {
+
+            $this -> model -> articleDelete($result[0]['image'], $this -> route['id']);
+            header("Location: /admin/journal/");
         }
 
         $this -> view -> render('Журнал', $result[0]);

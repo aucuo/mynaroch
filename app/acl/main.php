@@ -4,6 +4,7 @@ return [
     'all' => [
         'index',
         'journal',
+        'article',
         'problems',
         'gallery',
         'article',
