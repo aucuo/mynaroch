@@ -1,0 +1,37 @@
+#background {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/public/images/img (29).jpg');
+    background-position: center;
+    background-color: #000;
+    background-size: cover;
+    filter: brightness(.6);
+}
+
+#informationWrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    * {
+        color: #fff;
+    }
+
+    #information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: .95rem;
+            margin: 0 0 10px 0;
+        }
+    }
+}

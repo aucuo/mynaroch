@@ -1,0 +1,80 @@
+@import '../variables.scss';
+
+#wrapper {
+    max-width: 800px;
+    min-height: 80vh;
+    margin: 10vh auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    label#date {
+        width: 100%;
+        margin: 10px 0;
+        font-weight: 500;
+        font-size: .9rem;
+    }
+
+    form {
+        width: 100%;
+
+        label {
+            display: block;
+            width: 100%;    
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px 15px;
+            margin: 5px 0 20px 0;
+        }
+
+        select {
+            width: 30%;
+            padding: 5px 15px;
+            margin: 5px 0 20px;
+        }
+        
+        textarea {
+            display: none;
+        }
+
+        #toolbar {
+            margin: 5px 0 0;
+        }
+
+        #editor {
+            height: 80vh;
+            margin: 0 0 20px;
+        }
+
+        button#save {
+            border: none;
+            color: #000;
+            background: #cacaca;
+            padding: 10px 15px;
+            font-weight: 300;
+            transition: .3s;
+
+            &:hover {
+                background: #b4b4b4;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 900px) {
+    #wrapper {
+        margin: 10vh 10%;
+    }
+}

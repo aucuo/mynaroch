@@ -1,0 +1,149 @@
+@import '../variables.scss';
+
+* {
+	color: #fff;
+}
+
+#background {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: #000 url('/public/images/problemsBackground.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+	filter: brightness(.5);
+}
+
+#aboutPageWrapper {
+	z-index: 9999;
+	position: absolute;
+	width: 90%;
+	min-height: 100vh;
+	padding: 0 5%;
+	display: none;
+	justify-content: center;
+	background: rgba($color: #000000, $alpha: .5);
+	
+	* {
+		color: #000;
+	}
+
+	&.active {
+		display: flex;
+	}
+
+	a#closeButton {
+		position: absolute;
+		top: 0;
+		right: 5%;
+		width: 50px;
+		height: 50px;
+		margin: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+ 
+        *::before, 
+        *::after {
+			position: absolute;
+			display: block;
+			width: 30px;
+			height: 3px;
+			background: #000;
+        }
+        
+        span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+  
+          &::before {
+            content: '';
+			transform: rotate(45deg);
+          }
+  
+          &::after {
+            content: '';
+			transform: rotate(-45deg);
+          }
+        }
+	}
+
+	#aboutPage {
+		width: 100%;
+		padding: 10px 10% 20px;
+		background: #ffffff;
+
+		h2 {
+			display: flex;
+			align-items: center;
+			height: 50px;
+			letter-spacing: 1px;
+			
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 30px;
+			letter-spacing: .4px;
+		}
+	}
+}
+
+#informationWrapper {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	user-select: none; 
+	
+	#information {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin: auto;
+		padding: 15px;
+
+		p {
+			font-size: .95rem;
+			margin: 0 0 16px;
+		}
+
+		#buttons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			margin: 0 10px;
+
+			a {
+				text-align: center;
+				width: 10rem;
+				padding: 13px 10px;
+				margin: 5px;
+				border: 1px solid #fff;
+				border-radius: 3px;
+				font-weight: 300;
+				font-size: .9rem;
+				transition: .2s;
+
+				&:hover {
+					background: rgba(#fff, 0.1);
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 700px) {
+	#aboutPageWrapper {
+		padding: 0;
+		width: 100%;
+	}
+}
