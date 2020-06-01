@@ -12,6 +12,7 @@ class Db {
         
         $config = require 'app/config/db.php';
         $this -> db = new PDO('mysql:host='. $config['host'] .';dbname='. $config['name'] .'', $config['user'], $config['password']);
+        mysqli::set_charset ("utf8");
     }
 
 
