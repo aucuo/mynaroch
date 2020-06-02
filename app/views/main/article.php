@@ -14,6 +14,6 @@
     <footer>
         <a href="https://vk.com/mynaroch" target="_blank">Вконтакте</a>
 
-        <a href="" target="_blank">Связь</a>
+        <a href="/about" target="_blank">Связь</a>
     </footer>
 </div>

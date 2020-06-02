@@ -1,6 +1,3 @@
-
-<script src="/public/scripts/problems.js"></script>
-
 <script>$('menu').addClass('transparent')</script>
 
 <div id="wrapper">
@@ -34,3 +31,17 @@
     </div>
 
 </div>
+
+<script>
+
+$(window).on('load', function() {
+    $('#informationButton').on('click', function() {
+        $("#aboutPageWrapper").addClass('active');
+    });
+
+    $('#closeButton').on('click', function() {
+        $("#aboutPageWrapper").removeClass('active');
+    });
+});
+
+</script>
