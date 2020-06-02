@@ -23,6 +23,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/public/scripts/basic.js"></script>
 
+<link rel="apple-touch-icon" sizes="180x180" href="/public/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/public/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/public/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/public/styles/css/basic.min.css">
@@ -32,6 +37,10 @@
 
 </head>
 <body>
+
+	<div id="preloaderWrapper">
+		<div id="preloader"></div>
+	</div>
 
 	<menu class="">
 		<div id="mobileBackground"></div>

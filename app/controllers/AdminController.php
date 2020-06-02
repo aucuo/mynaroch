@@ -128,29 +128,33 @@ class AdminController extends Controller {
         $this -> view -> render('Журнал');
     }
 
-    public function journalTempAction() {        
+    public function journalTempAction() {    
 
-        $this -> view -> render('Журнал');
+        if (isset($_SESSION['temp'])) {
+            
+            $this -> view -> render('Журнал', $_SESSION['temp']);
+            unset($_SESSION['temp']);
+
+        } else {
+            
+            $this -> view -> render('Журнал');
+        }
     }
 
-    public function journalEditAction() {        
+    public function journalEditAction() {
 
         $result = $this -> model ->  isExists('journal', $this -> route['id']);
+
         
         if (!$result) {
             $this -> view -> errorCode(404);
         }
 
-        if (isset($_SESSION['temp'])) {
-
-            $result = $_SESSION['temp'];
-            unset($_SESSION['temp']);
-        }
-
         if (isset($_POST['save'])) {
 
-            if ($this -> model -> articleEdit($_POST, $this -> route['id'])) {
+            if ($this -> model -> articleEdit($result[0]['image'], $_FILES, $_POST, $this -> route['id'])) {
 
+                header("Location: /admin/journal");
                 $_SESSION['message'] = 'Статья отредактирована';
 
             } else {
@@ -161,6 +165,11 @@ class AdminController extends Controller {
         } else if (isset($_POST['temp'])) {
 
             $_SESSION['temp'] = $_POST;
+            $_SESSION['temp']['image'] = $result[0]['image'];
+            $_SESSION['temp']['date'] = $result[0]['date'];
+            $_SESSION['temp']['time'] = $result[0]['time'];
+            $_SESSION['temp']['author'] = $result[0]['author'];
+            
             header("Location: /admin/journal/temp");
 
         } else if (isset($_POST['delete'])) {

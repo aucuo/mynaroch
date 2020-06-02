@@ -9,13 +9,14 @@
     <h1>Добавить новую статью</h1>
     <form action="/admin/journal/add" method="POST" enctype="multipart/form-data">
         <label for="header">Заголовок</label>
-        <input name="header" type="text" value="<? if (isset($vars['header'])) echo $vars['header']; ?>" placeholder="Введите заголовок статьи">
+        <input name="header" type="text" value="<? if (isset($vars['header'])) echo $vars['header']; ?>" placeholder="Введите заголовок статьи" required>
 
         <label>Обложка</label>
-        <input name="file" id="fileInput" type="file" accept="image/*">
+        <input name="file" id="fileInput" type="file" accept="image/*" required>
 
         <label for="header">Категория</label>
-        <select name="category" value="<? echo $vars['category']; ?>">
+        <select name="category" value="<? echo $vars['category']; ?>" required>
+            <option value="" selected disabled hidden>Выберите категорию</option>
             <option>Архитектура</option>
             <option>История</option>
             <option>Экология</option>
@@ -24,11 +25,10 @@
         </select>
 
         <label for="description">Описание</label>
-        <input name="description" type="text" value="<? if (isset($vars['description'])) echo $vars['description']; ?>" placeholder="Введите описание статьи">
+        <input name="description" type="text" value="<? if (isset($vars['description'])) echo $vars['description']; ?>" placeholder="Введите описание статьи" required>
 
         <label for="content">Текст</label>
         <textarea name="content" id="textAreaContent"></textarea>
-        <textarea name="quill" id="textAreaQuill"></textarea>
 
         <div id="toolbar"></div>
         <div id="editor"><? if (isset($vars['content'])) echo $vars['content']; ?></div>

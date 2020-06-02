@@ -11,8 +11,12 @@
         <label for="header">Заголовок</label>
         <input name="header" type="text" value="<? if (isset($vars['header'])) echo $vars['header']; ?>" placeholder="Введите заголовок статьи">
 
+        <label for="image">Обложка (не обязательно)</label>
+        <input name="image" type="file">
+
         <label for="header">Категория</label>
-        <select name="category" value="<? echo $vars['category']; ?>">
+        <select name="category" value="">
+            <option value="" selected disabled hidden>Выберите категорию</option>
             <option>Архитектура</option>
             <option>История</option>
             <option>Экология</option>

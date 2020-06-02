@@ -3,7 +3,7 @@
 #wrapper {
     max-width: 800px;
     padding: 0 40px;
-    margin: 60px auto;
+    margin: 60px auto 0 ;
 
     * {
         font-size: 1rem;
@@ -70,6 +70,7 @@
     }
 
     ul, ol {
+        margin: 10px 0;
         padding: 10px 20px;
         border-top: 1px solid #aaa;
         border-bottom: 1px solid #aaa;
@@ -92,9 +93,55 @@
 
     blockquote {
         padding: 20px;
-        margin: 0 20px 40px;
+        margin: 0 0 40px;
         background: #f0e8ce;
         font-weight: 300;
         font-style: italic;
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px 0 0;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 400;
+            background-image: linear-gradient($mc, $mc);
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 3px;
+            line-height: 20px;
+            transition: background-size .3s;
+
+            &:hover {
+                background-size: 100% 3px;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width : 800px) {
+    #wrapper {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        #content {
+            padding: 0 20px;
+        }
+
+        footer {
+            border-top: 1px solid #8f8f8f;
+            margin: 0 20px;
+            padding: 20px 0;
+        }
     }
 }

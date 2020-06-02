@@ -19,12 +19,14 @@ $(document).ready(function() {
 
 </script>
 
+<a href=""></a>
+
 <div id="wrapper">
 
     <?php
 
 		for ($i = 0; $i < count($vars); $i++) {
-			echo '<div class="item-masonry sizer"><img id="'. $vars[$i]['id'] .'" src="/' . $vars[$i]['small'] . '"><div class="cover-item-gallery"><a href="">'. $vars[$i]['comment'] .'</a></div></div> ';
+			echo '<div class="item-masonry sizer"><img id="'. $vars[$i]['id'] .'" src="/' . $vars[$i]['small'] . '"><div class="cover-item-gallery"><a href="/'. $vars[$i]['big'] .'" target="_blank">'. $vars[$i]['comment'] .'</a></div></div> ';
         }
         
     ?>

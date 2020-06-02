@@ -187,13 +187,45 @@ class Admin extends Model {
         return $query;
     }
 
-    public function articleEdit($post, $id) {
+    public function articleEdit($dir, $files, $post, $id) {
 
         if (empty($post['header']) or empty($post['category']) or empty($post['description']) or empty($post['content'])) {
             return false;
         }
 
         $db = new Db;
+        $files = $files['image'];
+
+        if (!empty($files['name'])) {
+
+            unlink("$dir");
+            
+            $type = substr($files['type'], 6, 100);
+
+            $dir = 'public/images/journal';
+            $tmp_name = $files['tmp_name'];
+            $name = uniqid() .".$type"; // Генерация уникального имени
+
+            move_uploaded_file($tmp_name, "$dir/$name");
+
+            // Магия сжатия картинки
+            $filename = "$dir/$name";
+            $source = imagecreatefromjpeg($filename);
+            list($width, $height) = getimagesize($filename);
+            $newwidth = 800;
+            $newheight = $height/($width/$newwidth);
+
+            $destination = imagecreatetruecolor($newwidth, $newheight);
+            imagecopyresampled($destination, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+            imagejpeg($destination, "$dir/$name", 60);
+
+            $params = [
+                'id' => $id,
+                'image' => "$dir/$name",
+            ];
+
+            $query = $db -> query("UPDATE `journal` SET `image` = :image WHERE `journal`.`id` = :id;", $params);
+        }
 
         $params = [
             'id' => $id,
@@ -202,8 +234,6 @@ class Admin extends Model {
             'description' => $post['description'],
             'content' => $post['content'],
         ];
-
-        
 
         $query = $db -> query("UPDATE `journal` SET `header` = :header, `category` = :category, `description` = :description, `content` = :content WHERE `journal`.`id` = :id;", $params);
 

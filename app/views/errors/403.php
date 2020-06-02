@@ -1,1 +1,3 @@
-Страница 403
+<?
+
+header("Location: /admin/login");

@@ -11,11 +11,19 @@ $(window).on('load', function () {
         $("body").addClass('blocked');
       }    
   });
+
+  function preload() { 
+    let preloader = document.getElementById('preloaderWrapper');
+    preloader.style.display = 'none';
+    $('body').addClass('ready');
+  }
+
+  setTimeout(preload, 500);
 });
 
 document.onkeypress= function(event) {
   event= event||window.event;
 
   if(event.code == 'KeyA' && event.shiftKey)
-    window.location= "/admin/login"; //здесь подставить ту страницу, которая нужна
+    window.location= "/admin";
 };
